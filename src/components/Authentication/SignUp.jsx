@@ -1,13 +1,16 @@
+
 import { useForm } from "react-hook-form";
 import image from "../../assets/image/painting.jpg"
 import "../../style.css"
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/Context";
-const Login = () => {
 
-    const {loginUser} = useContext(AuthContext)
 
+const SignUp = () => {
+
+    const {createAccount, userUpdate} = useContext(AuthContext)
+    
     const {
         register,
         handleSubmit,
@@ -15,22 +18,34 @@ const Login = () => {
     } = useForm()
     const onSubmit = (data) => {
         console.log(data)
-        loginUser(data.email, data.password)
+        createAccount(data.email, data.password)
         .then(result => {
-            console.log(result)
+            console.log(result.user)
+            userUpdate(data.name)
+            .then(() => {
+                console.log("user Upadated")
+            })
         })
-    }
+     }
 
     return (
-        <div>
-            <div className="hero min-h-screen" style={{ backgroundImage: `url(${image})` }}>
+        <div className="hero min-h-screen" style={{ backgroundImage: `url(${image})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="">
                     <div className="hero ">
                         <div className="hero w-full max-w-md  space-y-3 rounded-xl">
                             <div className="hero-overlay w-full p-8 shadow-2xl  rounded-xl">
-                                <h1 className="text-2xl text-center text-white mb-5 primary">Login Your Account</h1>
+                                <h1 className="text-3xl text-center text-white mb-5 primary">Create an Account</h1>
                                 <form onSubmit={handleSubmit(onSubmit)} noValidate="" action="" className="space-y-6">
+                                    <div className="space-y-1 text-sm">
+                                        <input type="text"
+                                            name="name"
+                                            placeholder="User Name"
+                                            className="w-full px-4 py-3  border-b-2 border-gray-500 text-sm md:text-base text-black input-style input-bordered join-item rounded-3xl  font-bold"
+                                            {...register("name", { required: true })} />
+                                        {errors.name && <span className="ml-3  text-red-500 text-sm">This field is required</span>}
+
+                                    </div>
                                     <div className="space-y-1 text-sm">
                                         <input type="text"
                                             name="email"
@@ -72,16 +87,15 @@ const Login = () => {
                                         </svg>
                                     </button>
                                 </div>
-                                <p className="text-xs text-center sm:px-6 text-white">Don not have an account?
-                                    <a rel="noopener noreferrer" href="#" className="underline text-white"><Link to="/sign-up">Sign up</Link></a>
+                                <p className="text-xs text-center sm:px-6 text-white">already have an account please 
+                                    <a rel="noopener noreferrer" href="#" className="underline text-white ml-2"><Link to="/login">Login</Link></a>
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     );
 };
 
-export default Login;
+export default SignUp;

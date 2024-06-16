@@ -16,26 +16,26 @@
 
 .cartoon-button-2 {
     font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-    border: 3px solid #255b91; /* Sky blue border */
-    box-shadow: 4px 4px 0 #3a70a6; /* Sky blue shadow */
+    border: 3px solid orange; /* Sky blue border */
+    box-shadow: 4px 4px 0 orange; /* Sky blue shadow */
     transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 .cartoon-button-2:hover {
     transform: translateY(-2px);
-    box-shadow: 6px 6px 0 #27598a; /* Larger shadow on hover */
+    box-shadow: 6px 6px 0 orange; /* Larger shadow on hover */
 }
 .cartoon-button-2:active {
     transform: translateY(1px);
-    box-shadow: 3px 3px 0 #2f69a3; /* Smaller shadow on active */
+    box-shadow: 3px 3px 0 orange; /* Smaller shadow on active */
 }   
 
 .input-style {
     font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-    border: 3px solid #255b91; /* Sky blue border */
-    box-shadow: 4px 4px 0 #3a70a6; /* Sky blue shadow */
+    border: 3px solid orange; /* Sky blue border */
+    box-shadow: 4px 4px 0 orange; /* Sky blue shadow */
     transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 .input-style:active {
     transform: translateY(1px);
-    box-shadow: 3px 3px 0 #2f69a3; /* Smaller shadow on active */
+    box-shadow: 3px 3px 0 orange; /* Smaller shadow on active */
 }   
